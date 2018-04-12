@@ -18,10 +18,12 @@ class TestS3Storage(unittest.TestCase):
     #A assert
     assert storage.contains(path="tests/foo/boo.txt")
     assert False == storage.contains(path="should/not/exists.txt")
+
   def there_is_source_file(self, path):
     my_file = open(path, 'w')
     my_file.write("content of test file")
     my_file.close()
+  
   def there_is_s3_resource_available(self):
     return boto3.resource('s3')
 if __name__ == '__main__':

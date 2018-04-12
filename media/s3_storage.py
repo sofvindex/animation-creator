@@ -1,3 +1,5 @@
+import botocore
+
 class S3MediaStorage:
  
   def __init__(self, s3, bucket_name):
@@ -9,4 +11,8 @@ class S3MediaStorage:
     self.bucket.put_object(Key=dest, Body=source)
 
   def contains(self, path):
-    return True
+    try:
+      self.s3.Object(self.bucket_name, path).load()
+      return True
+    except botocore.exceptions.ClientError as e:
+      return False
