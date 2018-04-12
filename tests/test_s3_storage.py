@@ -1,5 +1,6 @@
 import unittest
-
+from media.s3_storage import S3MediaStorage 
+	
 class TestS3Storage(unittest.TestCase):
 
   def test_it_allow_store_media_from_path(self):
