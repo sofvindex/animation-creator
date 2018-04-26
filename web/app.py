@@ -6,7 +6,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "here will be my upload interface"
+    return render_template(
+      'upload_files.html'
+    )
+@app.route("/upload")
+def handle_upload():
+  return OK
+
 
 @app.route("/prepare")
 def prepare():
