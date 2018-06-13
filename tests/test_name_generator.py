@@ -10,4 +10,3 @@ class TestNameGenerator(unittest.TestCase):
     regexp = re.compile(r'^uploads\/[0-9a-f-]{36}\/gamma\.jpg$')
     assert n1 != n2
     assert regexp.search(n1)
-    
